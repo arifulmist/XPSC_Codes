@@ -97,54 +97,27 @@ void sieve()
 int main()
 {
     ariful
-    ll t=1,m,n,C,x,y,z,a,b,d,q,k;
+    ll t=1,m,n,c,x,y,z,a,b,d,q,k;
     cin >> t;
     while (t--)
     {
-      string s,str;
-    cin>>n>>C;
-    ll on=1;
-        vector<pair<ll,int>>a(n);
-        for(int i=0;i<n;i++)
-        {
-            cin>>a[i].first;
-            a[i].second=a[i].first+i+1;
-            a[i].first+=min((i+on),n-i);
-        }
- 
-vsort(a);
- 
-        vi  pref(1,0);
-        for(int i=0;i<n;i++){
-            pref.push_back(pref.back()+a[i].first);
-        }
- 
-        int ans=0;
-        for(int i=0;i<n;i++){
-            int mx=0;
-            ll c=C-a[i].second;
-            int low=0,high=n;
-            while(low<=high){
-                int mid=low+(high-low)/2;
-                int taken=mid+1;
-                ll sum=pref[mid];
-                if(i<mid){
-                    sum-=a[i].first;
-                    taken--;
-                }
-                if(sum<=c){
-                    mx=max(mx,taken);
-                    low=mid+1;
-                }
-                else{
-                    high=mid-1;
-                }
-            }
-            ans=max(ans,mx);
-        }
- 
-        p(ans);
+      cin >> n >> c;
+    ll a[n + 1];
+    for (int i = 1; i <= n; i++) 
+    {
+      cin >> a[i];
+      a[i] += i;
     }
-    
-    shesh
+    sort(a + 1, a + n + 1);
+    ll ans = 0;
+    for (int i = 1; i <= n; i++)
+    {
+      if (a[i] <= c)
+      {
+        c -= a[i];
+        ++ans;
+      }
+    }
+    p(ans);
+  }
 }
