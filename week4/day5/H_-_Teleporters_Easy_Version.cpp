@@ -143,7 +143,7 @@ vsort(a);
             ans=max(ans,mx);
         }
  
-        cout<<ans<<endl;
+        p(ans);
     }
     
     shesh
