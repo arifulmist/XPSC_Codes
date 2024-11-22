@@ -101,7 +101,26 @@ int main()
     cin >> t;
     while (t--)
     {
-      string s,str;
+      string s,ans;
+      cin>>n>>s;
+      for(ll i=n-1;i>=0;i--)
+      {
+        if(s[i]!='0')
+        {
+            ans+=(s[i]-'0'-1+'a');
+        }
+        else 
+        {
+          string res;
+          res+=s[i-2];
+          res+=s[i-1];
+          x=stoi(res);
+          ans+=('a'+x-1);
+          i-=2;
+        }
+      }
+      reverse(ans.begin(),ans.end());
+      p(ans);
         
     }
 
